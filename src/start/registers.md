@@ -101,7 +101,7 @@ the *accesses* as volatile, not the variable.
 
 ```rust
 let systick = unsafe { &mut *(0xE000_E010 as *mut SysTick) };
-let time = unsafe { std::ptr::read_volatile(&mut systick.cvr) };
+let time = unsafe { core::ptr::read_volatile(&mut systick.cvr) };
 ```
 
 So, we've fixed one of our four problems, but now we have even more `unsafe`
